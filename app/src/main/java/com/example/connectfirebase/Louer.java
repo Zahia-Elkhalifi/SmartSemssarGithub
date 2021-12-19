@@ -54,7 +54,13 @@ public class Louer extends AppCompatActivity  implements View.OnClickListener{
         mFirestore=FirebaseFirestore.getInstance();
 
         map=(ImageView) findViewById(R.id.map);
-        map.setOnClickListener(this);
+         map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {Intent intent=new Intent(Louer.this,TryMap.class);
+                startActivity(intent);
+
+            }
+        });
     }
 
     @Override
