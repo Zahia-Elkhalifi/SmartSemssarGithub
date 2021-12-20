@@ -3,7 +3,13 @@ package com.example.connectfirebase;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import
+
+
+        androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +36,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class Page2 extends AppCompatActivity implements View.OnClickListener  {
@@ -40,6 +48,10 @@ public class Page2 extends AppCompatActivity implements View.OnClickListener  {
     TextView fullName,email,showAll,telephone,showAllOffers;
     String userId;
     protected static ArrayList<OfferModel> mListAnnonce;
+
+    private RecyclerView annonceRV;
+    private AnnonceAdapterPage2 annonceAdapter;
+    private ArrayList<AnnonceModelPage2> mListAnnonce1;
 
 
     @Override
@@ -68,6 +80,17 @@ public class Page2 extends AppCompatActivity implements View.OnClickListener  {
 
         exitBtn = (Button) findViewById(R.id.exitBtn);
         exitBtn.setOnClickListener(this);
+
+        annonceRV= findViewById(R.id.rcv);
+
+        // here we have created new array list and added data to it.
+        mListAnnonce1 = new ArrayList<>();
+        mListAnnonce1.add(new AnnonceModelPage2("100000", "Rue Annajah, Al Qods, Oujda...", R.drawable.logo));
+        annonceAdapter = new AnnonceAdapterPage2(this,mListAnnonce1);
+        annonceRV.setLayoutManager( new LinearLayoutManager( this));
+        annonceRV.setAdapter(annonceAdapter);
+
+
 
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         if(signInAccount != null){
@@ -107,22 +130,20 @@ public class Page2 extends AppCompatActivity implements View.OnClickListener  {
                 }
             }
         });
+
         mListAnnonce = new ArrayList<>();
-
-
         CollectionReference collectionReference = fStore.collection("Logements").document(mAuth.getCurrentUser().getUid()).collection("Logements");
         collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-
-
-
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     FirebaseAuth mAuth = FirebaseAuth.getInstance();
                     FirebaseUser mUser = mAuth.getCurrentUser();
-
                     for (QueryDocumentSnapshot document : task.getResult()) {
 
+                        String documentId = document.getId();
+
+                        Toast.makeText(Page2.this, document.getString("prix"),Toast.LENGTH_SHORT).show();
                         mListAnnonce.add(new OfferModel(document.getString("prix"), document.getString("rue")+" "+document.getString("entourage"),R.drawable.logo));
 
                     }
