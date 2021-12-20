@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">connectFireBase</string>
-    <string name="facebook_app_id">1565224800511936</string>
-    <string name="fb_login_protocol_scheme">fb1565224800511936</string>
-    <string name="save">save</string>
-    <string name="Delete">Delete</string>
-
-</resources>
