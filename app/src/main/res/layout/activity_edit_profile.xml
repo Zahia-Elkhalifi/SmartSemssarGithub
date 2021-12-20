@@ -202,56 +202,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.654" />
 
-    <EditText
-        android:id="@+id/passwordActuel"
-        android:layout_width="388dp"
-        android:layout_height="40dp"
-        android:background="@drawable/modedit"
-        android:ems="10"
-        android:hint="Mot de passe actuel "
-        android:inputType="textPassword"
-        android:paddingLeft="15dp"
-        android:textColor="#6C6C6C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.726" />
 
-    <EditText
-        android:id="@+id/passwordNouveau"
-        android:layout_width="388dp"
-        android:layout_height="40dp"
-        android:background="@drawable/modedit"
-        android:ems="10"
-        android:hint="Nouveau mot de passe"
-        android:inputType="textPassword"
-        android:paddingLeft="15dp"
-        android:textColor="#6C6C6C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.795" />
 
-    <EditText
-        android:id="@+id/passwordNouveauConfirm"
-        android:layout_width="388dp"
-        android:layout_height="40dp"
-        android:background="@drawable/modedit"
-        android:ems="10"
-        android:hint="Confirmez le mot de passe"
-        android:inputType="textPassword"
-        android:paddingLeft="15dp"
-        android:textColor="#6C6C6C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -266,18 +218,6 @@
         app:srcCompat="@drawable/iconcle" />
 
     <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="27dp"
-        android:layout_height="21dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.509"
-        app:srcCompat="@drawable/iconpublic" />
-
-    <ImageView
         android:id="@+id/imageView12"
         android:layout_width="27dp"
         android:layout_height="21dp"
@@ -287,6 +227,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.653"
+        app:srcCompat="@drawable/iconpublic" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="27dp"
+        android:layout_height="21dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.509"
         app:srcCompat="@drawable/iconpublic" />
 
     <ImageView
@@ -336,40 +288,92 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView20"
-        android:layout_width="27dp"
-        android:layout_height="21dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.722"
-        app:srcCompat="@drawable/iconeye" />
 
-    <ImageView
-        android:id="@+id/imageView21"
-        android:layout_width="27dp"
-        android:layout_height="21dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintHorizontal_bias="0.966"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.857"
-        app:srcCompat="@drawable/iconeye" />
+        app:layout_constraintVertical_bias="0.726"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/rouge">
 
-    <ImageView
-        android:id="@+id/imageView22"
-        android:layout_width="27dp"
-        android:layout_height="21dp"
+
+        <EditText
+            android:id="@+id/passwordActuel"
+            android:layout_width="388dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/modedit"
+            android:ems="10"
+            android:hint="Mot de passe actuel "
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:textColor="#6C6C6C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.478"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.728" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/abc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.789"
-        app:srcCompat="@drawable/iconeye" />
+        app:layout_constraintVertical_bias="0.801"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/rouge">
+
+        <EditText
+            android:id="@+id/passwordNouveau"
+            android:layout_width="388dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/modedit"
+            android:ems="10"
+            android:hint="Nouveau mot de passe"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:textColor="#6C6C6C" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/def"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.958"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.875"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/rouge">
+
+        <EditText
+            android:id="@+id/passwordNouveauConfirm"
+            android:layout_width="388dp"
+            android:layout_height="40dp"
+            android:background="@drawable/modedit"
+            android:ems="10"
+            android:hint="Confirmez le mot de passe"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:textColor="#6C6C6C"
+            android:layout_marginRight="10dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
